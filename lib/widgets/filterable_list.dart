@@ -30,7 +30,7 @@ import 'package:flutter/material.dart';
 class FilterableList<T> extends StatelessWidget {
   final List<T> items;
   final Function(T) onItemTapped;
-  final double elevation;
+
   final double maxListHeight;
   final TextStyle suggestionTextStyle;
   final Widget? loader;
@@ -45,7 +45,6 @@ class FilterableList<T> extends StatelessWidget {
     required this.onItemTapped,
     this.loader,
     this.suggestionBuilder,
-    this.elevation = 5,
     this.maxListHeight = 150,
     this.suggestionTextStyle = const TextStyle(),
     this.suggestionBackgroundColor,

@@ -117,10 +117,8 @@ class EasySearchBar2<T> extends StatefulWidget implements PreferredSizeWidget {
   /// Can be used to set async suggestions list
   final Future<List<T>> Function(String value)? asyncSuggestions;
 
-  /// Can be used to change suggestion list elevation
-  final double suggestionsElevation;
-
-  /// A function that can be used to create a widget to display a custom suggestions loader
+  /// A function that can be used to create a widget to display a custom
+  /// suggestions loader
   final Widget Function()? suggestionLoaderBuilder;
 
   /// Can be used to change the suggestions text style
@@ -168,7 +166,6 @@ class EasySearchBar2<T> extends StatefulWidget implements PreferredSizeWidget {
     this.searchHintText = '',
     this.searchBackgroundColor,
     this.suggestionLoaderBuilder,
-    this.suggestionsElevation = 5,
     this.backgroundColor,
     this.foregroundColor,
     this.elevation,
@@ -298,7 +295,6 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
                 loader: _suggestionLoaderBuilder(),
                 items: _suggestions,
                 suggestionBuilder: widget.suggestionBuilder,
-                elevation: widget.suggestionsElevation,
                 suggestionTextStyle: widget.suggestionTextStyle,
                 suggestionBackgroundColor: widget.suggestionBackgroundColor,
                 suggestionToString: suggestionToString,
