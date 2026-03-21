@@ -384,7 +384,8 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
     final theme = Theme.of(context);
     final appBarTheme = AppBarTheme.of(context);
     final scaffold = Scaffold.maybeOf(context);
-    final ModalRoute<dynamic>? parentRoute = ModalRoute.of(context);
+    final parentRoute = ModalRoute.of(context);
+    final colorScheme = ColorScheme.of(context);
 
     final canPop = parentRoute?.canPop ?? false;
 
@@ -399,10 +400,19 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
 
     final backgroundColor = widget.backgroundColor ??
         appBarTheme.backgroundColor ??
-        theme.primaryColor;
+        (theme.useMaterial3
+            ? colorScheme.surface
+            : (theme.brightness == Brightness.dark
+                ? colorScheme.surface
+                : colorScheme.primary));
 
-    final foregroundColor =
-        widget.foregroundColor ?? appBarTheme.foregroundColor;
+    final foregroundColor = widget.foregroundColor ??
+        appBarTheme.foregroundColor ??
+        (theme.useMaterial3
+            ? colorScheme.onSurface
+            : (theme.brightness == Brightness.dark
+                ? colorScheme.onSurface
+                : colorScheme.onPrimary));
 
     final searchBackgroundColor = widget.searchBackgroundColor ??
         scaffold!.widget.backgroundColor ??
