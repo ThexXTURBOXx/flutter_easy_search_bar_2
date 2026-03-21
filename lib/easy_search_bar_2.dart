@@ -25,6 +25,8 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
+/// AppBar with animated search functionality that can be used as regular or
+/// floating AppBar
 library;
 
 import 'dart:async';
@@ -37,12 +39,15 @@ import 'package:flutter/services.dart';
 
 export 'widgets/filterable_list.dart';
 
+/// Widget that shows a search bar with filterable dropdown
+/// (see [FilterableList])
 class EasySearchBar2<T> extends StatefulWidget implements PreferredSizeWidget {
   /// The title to be displayed inside AppBar
   final Widget title;
 
   /// Returns the current search value
-  /// When search is closed, this method returns an empty value to clear the current search
+  /// When search is closed, this method returns an empty value to clear the
+  /// current search
   final Function(String) onSearch;
 
   /// Can be used to add leading icon to AppBar
@@ -66,16 +71,19 @@ class EasySearchBar2<T> extends StatefulWidget implements PreferredSizeWidget {
   /// Can be used to change AppBar height
   final double appBarHeight;
 
-  /// Can be used to set a duration for the AppBar search show and hide animation
+  /// Can be used to set a duration for the AppBar search show and hide
+  /// animation
   final Duration animationDuration;
 
   /// Can be used to determine if it will be a normal or floating AppBar
   final bool isFloating;
 
-  /// Can be used to determine if the suggestions overlay will be opened when clicking search
+  /// Can be used to determine if the suggestions overlay will be opened when
+  /// clicking search
   final bool openOverlayOnSearch;
 
-  /// Can be used to determine if the actions button will be placed at right of the appbar
+  /// Can be used to determine if the actions button will be placed at right of
+  /// the appbar
   final bool putActionsOnRight;
 
   /// Can be used to set the AppBar title style
@@ -130,7 +138,8 @@ class EasySearchBar2<T> extends StatefulWidget implements PreferredSizeWidget {
   /// Can be used to create custom suggestion item widget
   final Widget Function(T data)? suggestionBuilder;
 
-  /// Instead of using the default suggestion tap action that fills the textField, you can set your own custom action for it
+  /// Instead of using the default suggestion tap action that fills the
+  /// textField, you can set your own custom action for it
   final Function(T data)? onSuggestionTap;
 
   /// Converts a given suggested item to a corresponding string
@@ -142,9 +151,10 @@ class EasySearchBar2<T> extends StatefulWidget implements PreferredSizeWidget {
   /// Can be used to change text direction
   final TextDirection searchTextDirection;
 
-  /// Can be uses to allow user to cancel suggestions with escape or back button.
+  /// Can be used to allow user to cancel suggestions with escape or back button
   final bool cancelableSuggestions;
 
+  /// Construct a new search bar instance
   const EasySearchBar2({
     super.key,
     required this.title,

@@ -27,18 +27,37 @@
 
 import 'package:flutter/material.dart';
 
+/// Widget that shows a filterable list (useful for dropdowns)
 class FilterableList<T> extends StatelessWidget {
+  /// The items to filter
   final List<T> items;
+
+  /// Function that is called when a given item is tapped
   final Function(T) onItemTapped;
 
+  /// Maximum height of the list
   final double maxListHeight;
+
+  /// [TextStyle] that is used for the suggestions in the list
   final TextStyle suggestionTextStyle;
+
+  /// Widget that is shown while the list is loading
   final Widget? loader;
+
+  /// Background color behind the suggestions
   final Color? suggestionBackgroundColor;
+
+  /// Is the list currently loading?
   final bool loading;
+
+  /// Function translating a given suggestion to a Widget
   final Widget Function(T data)? suggestionBuilder;
+
+  /// Function translating a given suggestion to a String (used if
+  /// [suggestionBuilder] is not given)
   final String Function(T data)? suggestionToString;
 
+  /// Construct a new filterable list instance
   const FilterableList({
     super.key,
     required this.items,
