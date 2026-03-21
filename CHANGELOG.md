@@ -1,7 +1,8 @@
 ## `easy_search_bar_2`
 
-## 1.0.1
+## 1.1.0
 
+* Fixed app bar colors
 * Export `FilterableList` widget
 * General maintenance (lints, documentation etc.)
 
