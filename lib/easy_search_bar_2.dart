@@ -35,6 +35,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+export 'widgets/filterable_list.dart';
+
 class EasySearchBar2<T> extends StatefulWidget implements PreferredSizeWidget {
   /// The title to be displayed inside AppBar
   final Widget title;
