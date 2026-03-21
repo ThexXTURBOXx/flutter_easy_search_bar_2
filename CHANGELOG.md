@@ -1,5 +1,10 @@
 ## `easy_search_bar_2`
 
+## 1.0.1
+
+* Export `FilterableList` widget
+* General maintenance (lints, documentation etc.)
+
 ## 1.0.0
 
 * *No changes, just stable version release*
