@@ -345,9 +345,10 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
   void updateSyncSuggestions(String input) {
     _suggestions = widget.suggestions!
         .where(
-          (element) => suggestionToString(
-            element,
-          ).toLowerCase().contains(input.toLowerCase()),
+          (element) =>
+              suggestionToString(element)
+                  .toLowerCase()
+                  .contains(input.toLowerCase()),
         )
         .toList();
     rebuildOverlay();
