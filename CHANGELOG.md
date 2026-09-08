@@ -1,5 +1,9 @@
 ## `easy_search_bar_2`
 
+## 2.0.0
+
+* Migrated to `material_ui` and `cupertino_ui` packages
+
 ## 1.1.0
 
 * Fixed app bar colors

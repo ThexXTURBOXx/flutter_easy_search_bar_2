@@ -14,10 +14,18 @@ In the `pubspec.yaml` of your flutter project, add the following dependency:
 
 ``` yaml
 dependencies:
-  easy_search_bar_2: ^1.0.0-alpha.0
+  easy_search_bar_2: ^2.0.0
 ```
 
-## Migrating from `easy_search_bar` to `easy_search_bar_2`
+## Migration Guides
+
+### Updating from 1.x to 2.x
+
+As far as I am aware, there are no migration steps to follow here.  
+Just keep in mind that this package now uses the dedicated `material_ui` and `cupertino_ui` packages
+and you are strongly advised to use them as well!
+
+### Migrating from `easy_search_bar` to `easy_search_bar_2`
 
 Not a lot of changes are necessary, actually:
 
