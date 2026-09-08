@@ -1,5 +1,5 @@
 import 'package:easy_search_bar_2/easy_search_bar_2.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() {
   runApp(const MyHomePage());
