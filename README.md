@@ -14,7 +14,7 @@ In the `pubspec.yaml` of your flutter project, add the following dependency:
 
 ``` yaml
 dependencies:
-  easy_search_bar_2: ^2.0.0
+  easy_search_bar_2: ^2.0.1
 ```
 
 ## Migration Guides

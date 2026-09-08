@@ -1,5 +1,9 @@
 ## `easy_search_bar_2`
 
+## 2.0.1
+
+* Bump Flutter SDK constraint once more
+
 ## 2.0.0
 
 * Migrated to `material_ui` and `cupertino_ui` packages
