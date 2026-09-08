@@ -1,5 +1,9 @@
 ## `easy_search_bar_2`
 
+## 2.0.2
+
+* Fix lint
+
 ## 2.0.1
 
 * Bump Flutter SDK constraint once more
