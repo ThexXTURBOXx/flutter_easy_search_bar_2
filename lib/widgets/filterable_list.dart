@@ -76,7 +76,8 @@ class FilterableList<T> extends StatelessWidget {
     final theme = Theme.of(context);
     final scaffold = Scaffold.maybeOf(context);
 
-    final suggestionBackgroundColor = this.suggestionBackgroundColor ??
+    final suggestionBackgroundColor =
+        this.suggestionBackgroundColor ??
         scaffold?.widget.backgroundColor ??
         theme.scaffoldBackgroundColor;
 

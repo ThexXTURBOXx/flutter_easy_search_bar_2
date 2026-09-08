@@ -193,9 +193,9 @@ class EasySearchBar2<T> extends StatefulWidget implements PreferredSizeWidget {
     this.searchTextDirection = TextDirection.ltr,
     this.cancelableSuggestions = true,
   }) : assert(
-          elevation == null || elevation >= 0.0,
-          'elevation must be non-zero',
-        );
+         elevation == null || elevation >= 0.0,
+         'elevation must be non-zero',
+       );
 
   @override
   State<EasySearchBar2<T>> createState() => _EasySearchBar2State<T>();
@@ -225,8 +225,10 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
   @override
   void initState() {
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: widget.animationDuration);
+    _controller = AnimationController(
+      vsync: this,
+      duration: widget.animationDuration,
+    );
     _containerSizeAnimation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(
         parent: _controller,
@@ -343,9 +345,9 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
   void updateSyncSuggestions(String input) {
     _suggestions = widget.suggestions!
         .where(
-          (element) => suggestionToString(element)
-              .toLowerCase()
-              .contains(input.toLowerCase()),
+          (element) => suggestionToString(
+            element,
+          ).toLowerCase().contains(input.toLowerCase()),
         )
         .toList();
     rebuildOverlay();
@@ -398,32 +400,37 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
       'Cannot use leading when back button exists',
     );
 
-    final backgroundColor = widget.backgroundColor ??
+    final backgroundColor =
+        widget.backgroundColor ??
         appBarTheme.backgroundColor ??
         (theme.useMaterial3
             ? colorScheme.surface
             : (theme.brightness == Brightness.dark
-                ? colorScheme.surface
-                : colorScheme.primary));
+                  ? colorScheme.surface
+                  : colorScheme.primary));
 
-    final foregroundColor = widget.foregroundColor ??
+    final foregroundColor =
+        widget.foregroundColor ??
         appBarTheme.foregroundColor ??
         (theme.useMaterial3
             ? colorScheme.onSurface
             : (theme.brightness == Brightness.dark
-                ? colorScheme.onSurface
-                : colorScheme.onPrimary));
+                  ? colorScheme.onSurface
+                  : colorScheme.onPrimary));
 
-    final searchBackgroundColor = widget.searchBackgroundColor ??
+    final searchBackgroundColor =
+        widget.searchBackgroundColor ??
         scaffold!.widget.backgroundColor ??
         theme.inputDecorationTheme.fillColor ??
         theme.scaffoldBackgroundColor;
 
-    final iconTheme = widget.iconTheme ??
+    final iconTheme =
+        widget.iconTheme ??
         appBarTheme.iconTheme ??
         theme.iconTheme.copyWith(color: foregroundColor);
 
-    final titleTextStyle = widget.titleTextStyle ??
+    final titleTextStyle =
+        widget.titleTextStyle ??
         appBarTheme.titleTextStyle ??
         theme.textTheme.titleLarge!.copyWith(color: foregroundColor);
 
@@ -431,17 +438,21 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
 
     final cursorColor = widget.searchCursorColor ?? theme.primaryColor;
 
-    final searchHintStyle = widget.searchHintStyle ??
+    final searchHintStyle =
+        widget.searchHintStyle ??
         theme.inputDecorationTheme.hintStyle ??
         const TextStyle(color: Colors.grey, fontStyle: FontStyle.italic);
 
-    final searchBackIconTheme = widget.searchBackIconTheme ??
+    final searchBackIconTheme =
+        widget.searchBackIconTheme ??
         IconThemeData(size: 24, color: Theme.of(context).primaryColor);
 
-    final searchClearIconTheme = widget.searchClearIconTheme ??
+    final searchClearIconTheme =
+        widget.searchClearIconTheme ??
         IconThemeData(size: 24, color: Theme.of(context).primaryColor);
 
-    final systemOverlayStyle = widget.systemOverlayStyle ??
+    final systemOverlayStyle =
+        widget.systemOverlayStyle ??
         appBarTheme.systemOverlayStyle ??
         (theme.brightness == Brightness.dark
             ? SystemUiOverlayStyle.light
@@ -494,7 +505,8 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
                           child: Stack(
                             children: [
                               Container(
-                                height: widget.appBarHeight +
+                                height:
+                                    widget.appBarHeight +
                                     (widget.isFloating ? 5 : 0),
                                 width: double.infinity,
                                 padding: const EdgeInsets.only(
@@ -532,9 +544,8 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
                                               icon: const Icon(
                                                 Icons.arrow_back_outlined,
                                               ),
-                                              onPressed: () => Navigator.pop(
-                                                context,
-                                              ),
+                                              onPressed: () =>
+                                                  Navigator.pop(context),
                                               tooltip: MaterialLocalizations.of(
                                                 context,
                                               ).backButtonTooltip,
@@ -549,9 +560,7 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
                                             right: 10,
                                           ),
                                           child: IconButton(
-                                            icon: const Icon(
-                                              Icons.menu,
-                                            ),
+                                            icon: const Icon(Icons.menu),
                                             onPressed: scaffold.openDrawer,
                                             tooltip: MaterialLocalizations.of(
                                               context,
@@ -562,9 +571,7 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
                                     ),
                                     Expanded(
                                       child: Container(
-                                        margin: const EdgeInsets.only(
-                                          left: 10,
-                                        ),
+                                        margin: const EdgeInsets.only(left: 10),
                                         child: DefaultTextStyle(
                                           style: titleTextStyle,
                                           softWrap: false,
@@ -573,41 +580,43 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
                                         ),
                                       ),
                                     ),
-                                    ...List.generate(widget.actions.length + 1,
-                                        (index) {
-                                      if (widget.actions.length == index &&
-                                              !widget.putActionsOnRight ||
-                                          index == 0 &&
-                                              widget.putActionsOnRight) {
+                                    ...List.generate(
+                                      widget.actions.length + 1,
+                                      (index) {
+                                        if (widget.actions.length == index &&
+                                                !widget.putActionsOnRight ||
+                                            index == 0 &&
+                                                widget.putActionsOnRight) {
+                                          return IconTheme(
+                                            data: iconTheme,
+                                            child: IconButton(
+                                              icon: const Icon(Icons.search),
+                                              iconSize: iconTheme.size ?? 24,
+                                              onPressed: () {
+                                                _controller.forward();
+                                                _focusNode.requestFocus();
+
+                                                if (widget
+                                                    .openOverlayOnSearch) {
+                                                  openOverlay();
+                                                }
+                                              },
+                                              tooltip: MaterialLocalizations.of(
+                                                context,
+                                              ).searchFieldLabel,
+                                            ),
+                                          );
+                                        }
                                         return IconTheme(
                                           data: iconTheme,
-                                          child: IconButton(
-                                            icon: const Icon(
-                                              Icons.search,
-                                            ),
-                                            iconSize: iconTheme.size ?? 24,
-                                            onPressed: () {
-                                              _controller.forward();
-                                              _focusNode.requestFocus();
-
-                                              if (widget.openOverlayOnSearch) {
-                                                openOverlay();
-                                              }
-                                            },
-                                            tooltip: MaterialLocalizations.of(
-                                              context,
-                                            ).searchFieldLabel,
-                                          ),
+                                          child:
+                                              widget.actions[widget
+                                                      .putActionsOnRight
+                                                  ? (index - 1)
+                                                  : index],
                                         );
-                                      }
-                                      return IconTheme(
-                                        data: iconTheme,
-                                        child: widget.actions[
-                                            widget.putActionsOnRight
-                                                ? (index - 1)
-                                                : index],
-                                      );
-                                    }),
+                                      },
+                                    ),
                                   ],
                                 ),
                               ),
@@ -618,9 +627,11 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
                                   animation: _controller,
                                   builder: (context, child) => Container(
                                     alignment: Alignment.center,
-                                    height: constraints.maxHeight -
+                                    height:
+                                        constraints.maxHeight -
                                         (widget.isFloating ? 5 : 0),
-                                    width: _containerSizeAnimation.value *
+                                    width:
+                                        _containerSizeAnimation.value *
                                             constraints.maxWidth -
                                         (_containerSizeAnimation.value *
                                             (widget.isFloating ? 10 : 0)),
@@ -674,9 +685,9 @@ class _EasySearchBar2State<T> extends State<EasySearchBar2<T>>
                                           decoration: InputDecoration(
                                             contentPadding:
                                                 const EdgeInsets.only(
-                                              left: 20,
-                                              right: 10,
-                                            ),
+                                                  left: 20,
+                                                  right: 10,
+                                                ),
                                             fillColor: searchBackgroundColor,
                                             filled: true,
                                             hintText: widget.searchHintText,
